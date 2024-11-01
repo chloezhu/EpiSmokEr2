@@ -4,7 +4,7 @@ EpiSmokEr2 is an R-package for predicting smoking status with whole blood DNA me
 # Installation
 To install:
 ```r
-devtools::install_github("aet21/EpiMitClocks")
+devtools::install_github("chloezhu/EpiSmokEr2")
 ```
 
 # References
