@@ -1,0 +1,69 @@
+---
+title: "Introduction to EpiSmokEr2"
+author:
+- name: Tianyu Zhu
+  affiliation: Institute for Molecular Medicine Finland FIMM, HiLIFE, University of Helsinki, Helsinki, Finland
+  email: tianyu.zhu@helsinki.fi
+package: EpiSmokEr2
+output:
+  BiocStyle::html_document
+abstract: |
+  EpiSmokEr2 is an R-package for predicting smoking status with whole blood DNA methlyation array data. Based on EpiSmokEr (Bollepalli et al., 2019) which trained on 450K data, EpiSmokEr2 includes an additional model for EPIC/EPICv2 data. The EPIC model was trained using LASSO regression with data from the Young Finns Study (YFS).
+vignette: |
+  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Background
+Smoking can cause significant changes in blood DNA methylation (DNAm), leading to the development of several accurate DNAm-based smoking scores. However, these scores requires thresholds to classify individuals as current smokers, former smokers, or never smokers statuses, which can be challenging to determine and may vary across populations. EpiSmokEr is a smoking status classifier that uses logistic regression to assign smoking status basaed on maximum probability estimates, thereby eliminating the need for threshold selection. The orignial EpiSmokEr (Bollepalli et al., 2019) was trained on 450k data, while the updated EpiSmokEr2 features a new model based on EPIC data. This tutorial will guide you through using EpiSmokEr2 with 2 examples, starting from either a beta value matrix or IDAT files.
+
+# Tutorial Example 1 - from beta value matrix
+The test data consists of a simulated EPIC beta value matrix of 511 CpGs in the model and 10 individuals. Sex information is stored in the vector *sex.v* (0=Female, 1=Male). We recommend that users perform necessary quality control and normalization steps on the beta value matrix before inputting it. 
+
+## Loading the test data
+```{r,message = FALSE}
+library(EpiSmokEr2)
+data('TestData')
+```
+
+## Predicting smoking status
+*epismoker* function will return a data frame including the following columns for each sample:  
+CS: the probability of being current smoker  
+FS: the probability of being former smoker  
+NS: the probability of being never smoker  
+Class: the classification of smoking status (CS, FS, NS)  
+CvsN: the classification of smoking status (CS, NS)  
+```{r}
+pred.df<-epismoker(data.m = beta.m, sex.v = sex.v, array = 'EPIC');pred.df
+```
+# Tutorial Example 2 - from IDAT files
+The model can tolerate up to 10% of missing CpGs. If more than 10% of CpGs are absent from your data, we recommend starting from IDAT files. 
+
+## Loading the IDAT files
+*loadData* function will return an RGset from minfi R package.
+```{r,message = FALSE}
+rawdata <- loadData(idatPath = '~/Desktop/204957740136')
+```
+
+## Quantile normalization
+*normalizeData* function performs quantile normalization on intensity values based on each probe type and color channel (details can be found in Bollepalli et al. 2019), using the training data as a reference. The output is a normalized beta value matrix. 
+```{r, message = FALSE}
+dataset_QN <- normalizeData(RGset=rawdata, normMethod = "QN",array = 'EPIC') 
+```
+
+## Predicting the smoking status
+Next, we can input this beta value matrix into *epismoker* function as previously demonstrated.
+```{r}
+pred.df <- epismoker(data.m = dataset_QN, sex.v = c(0,0,1,0,1,1,0,1), array = 'EPIC');pred.df
+```
+
+# SessionInfo
+```{r sessionInfo, echo=FALSE}
+sessionInfo()
+```

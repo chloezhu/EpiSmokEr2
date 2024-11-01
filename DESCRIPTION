@@ -1,0 +1,20 @@
+Package: EpiSmokEr2
+Type: Package
+Title: Epigenetic Smoking status Estimator
+Version: 0.1.0
+Author: Tianyu Zhu, Teodóra Faragó, Sailalitha Bollepalli
+Maintainer: Tianyu Zhu <tianyu.zhu@helsinki.fi>
+Description: EpiSmokEr2 is an R-package for predicting smoking status with whole blood DNA methlyation array data. Based on EpiSmokEr (Bollepalli et al., 2019) which trained on 450K data, EpiSmokEr2 includes an additional model for EPIC/EPICv2 data. The EPIC model was trained using LASSO regression with data from the Young Finns Study (YFS).
+License: GNU General Public License 3
+Encoding: UTF-8
+LazyData: true
+RoxygenNote: 7.3.2
+Depends: R (>= 3.5.0), IlluminaHumanMethylation450kmanifest,
+        IlluminaHumanMethylation450kanno.ilmn12.hg19,
+        IlluminaHumanMethylationEPICmanifest,
+        IlluminaHumanMethylationEPICanno.ilm10b4.hg19, minfi (>=
+        1.24.0),
+Suggests: knitr, rmarkdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2024-11-01 14:01:18 UTC; zhutiany
