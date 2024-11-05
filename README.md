@@ -10,13 +10,13 @@ devtools::install_github("chloezhu/EpiSmokEr2")
 # Tutorial
 Start from beta matrix: 
 ```r
-pred.df <- epismoker(data.m = beta.m, sex.v = sex.v, array = 'EPIC')
+pred.df <- epismoker(data.m = beta.m, sex.v = sex.v, array = "EPIC")
 ```
 Start from IDAT files (quantile normalization):
 ```r
 RGset <- loadData(idatPath = idatPath)
 beta.m <- normalizeData(RGset = RGset, normMethod = "QN", array = "EPIC")
-pred.df <- epismoker(data.m = beta.m, sex.v = sex.v, array = 'EPIC')
+pred.df <- epismoker(data.m = beta.m, sex.v = sex.v, array = "EPIC")
 ```
 
 # References
