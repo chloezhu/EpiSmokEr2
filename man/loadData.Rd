@@ -16,7 +16,7 @@ A RGChannelSet object
 loadData function reads IDAT files and saves as a minfi RGSet object. Details can be found in the help page of *read.metharray.sheet* and *read.metharray.exp* function from *minfi* R package.
 }
 \examples{
-#rawdata <- loadData(idatPath)
+#RGset <- loadData(idatPath = idatPath)
 
 
 }

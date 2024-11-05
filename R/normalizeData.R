@@ -37,7 +37,7 @@
 #' @author Sailalitha Bollepalli, Tianyu Zhu
 #'
 #' @examples
-#' #dataset <- normalizeData(RGset, normMethod="QN", array = "450k")
+#' #dataset <- normalizeData(RGset = RGset, normMethod="QN", array = "EPIC")
 #'
 #' @import minfi
 #' @import IlluminaHumanMethylation450kmanifest

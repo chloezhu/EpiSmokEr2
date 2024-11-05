@@ -27,7 +27,7 @@ Performs quantile normaliation on signal intensity values for each color channel
 This function does quantile normalization to input data.
 }
 \examples{
-#dataset <- normalizeData(RGset, normMethod="QN", array = "450k")
+#dataset <- normalizeData(RGset = RGset, normMethod="QN", array = "EPIC")
 
 }
 \references{

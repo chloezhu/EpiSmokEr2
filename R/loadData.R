@@ -11,7 +11,7 @@
 #' A RGChannelSet object
 #'
 #' @examples
-#' #rawdata <- loadData(idatPath)
+#' #RGset <- loadData(idatPath = idatPath)
 #'
 #'
 #' @import minfi
