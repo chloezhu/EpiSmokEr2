@@ -14,7 +14,7 @@ Depends: R (>= 3.5.0), IlluminaHumanMethylation450kmanifest,
         IlluminaHumanMethylationEPICmanifest,
         IlluminaHumanMethylationEPICanno.ilm10b4.hg19, minfi (>=
         1.24.0),
-Suggests: knitr, rmarkdown
+Suggests: knitr, rmarkdown, BiocStyle
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2024-11-01 14:01:18 UTC; zhutiany
+Packaged: 2024-11-05 14:21:27 UTC; zhutiany

@@ -4,14 +4,14 @@
 \alias{epismoker}
 \title{Epigenetic Smoking status Estimator}
 \usage{
-epismoker(dataset, sex.v, array)
+epismoker(data.m, sex.v, array)
 }
 \arguments{
+\item{data.m}{Pre-processed beta value matrix with CpGs as rows and samples as columns. Missing values is imputed as 0.5.}
+
 \item{sex.v}{A vector indicating the sex, should be marked as 0 and 1 representing female and male respectively. Missing "sex" information is imputed as 0.5.}
 
 \item{array}{Array type for the input data. "450K" for Illumina HumanMethylation450 data and "EPIC" for Illumina MethylationEPIC (or EPIC v2.0) data.}
-
-\item{dataset}{Pre-processed beta value matrix with CpGs as rows and samples as columns. Missing values is imputed as 0.5.}
 }
 \value{
 A data frame containing following columns for each sample:

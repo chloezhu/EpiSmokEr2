@@ -9,7 +9,7 @@
 #'
 #' @usage epismoker(data.m, sex.v, array)
 #'
-#' @param dataset
+#' @param data.m
 #' Pre-processed beta value matrix with CpGs as rows and samples as columns. Missing values is imputed as 0.5.
 #'
 #' @param sex.v
